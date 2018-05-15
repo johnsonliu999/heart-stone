@@ -3,8 +3,9 @@ import { render } from 'react-dom';
 import {Row, Col} from 'reactstrap'
 import SearchBar from './components/SearchBar'
 import SearchResult from './components/SearchResult'
-import CommonDetail from "./components/details/CommonDetail";
-
+import CardDetail from "./components/details/CardDetail";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import CollectionController from './components/controllers/CollectionController';
 
 class App extends Component {
 
@@ -25,17 +26,21 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                <Row>
-                    <Col>
-                        <SearchBar handleResult={this.handleResult}/>
-                        { this.state.cards && (<SearchResult
-                            cards={this.state.cards}
-                            handleResultClick={this.handleResultClick}/>)}
-                    </Col>
-                    {this.state.cardDisplayed && <Col><CommonDetail card={this.state.cardDisplayed}/></Col>}
-                </Row>
-            </div>
+            <Router>
+                <div className="container-fluid">
+                    <SearchBar handleResult={this.handleResult}/>
+                    <Route path={'/search/:keyWord'} render={() =>
+                        <Row>
+                            <Col><SearchResult cards={this.state.cards}
+                                          handleResultClick={this.handleResultClick} />
+                            </Col>
+                            {this.state.cardDisplayed &&
+                                <Col><CardDetail card={this.state.cardDisplayed}/></Col>}
+                        </Row>} />
+                    <Route path={'/collections/:category/:keyWord'}
+                               component={CollectionController} />
+                </div>
+            </Router>
         );
     }
 }

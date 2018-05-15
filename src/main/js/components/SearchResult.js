@@ -1,9 +1,9 @@
 import React from 'react'
-import {ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText} from 'reactstrap'
+import {ListGroup, ListGroupItem, ListGroupItemHeading} from 'reactstrap'
 import {Row, Col} from 'reactstrap'
 
 const SearchResult = ({cards, handleResultClick}) => {
-    return (
+    return (cards ?
         <ListGroup>
             {cards.map(card => (
                 <ListGroupItem key={card.cardId} onClick={() => handleResultClick(card)}>
@@ -15,7 +15,7 @@ const SearchResult = ({cards, handleResultClick}) => {
                     </Row>
                 </ListGroupItem>
             ))}
-        </ListGroup>
+        </ListGroup> : <div>No Cards Found</div>
     );
 };
 
