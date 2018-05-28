@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap-social/5.0.0/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="container-fluid text-center">
+    <h3>Login with:</h3>
+    <a th:each="url : ${urls}" th:href="${url.value}"
+       th:class="'btn btn-block btn-social btn-' + ${#strings.toLowerCase(url.key)}">
+        <span th:class="'fa fa-' + ${#strings.toLowerCase(url.key)}"></span>
+        <span th:text="${url.key}"></span>
+    </a>
+</div>
+</body>
+</html>

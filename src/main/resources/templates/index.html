@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    window.user = /*[[${user}]]*/ 'default';
+    console.log(user);
+    /*]]>*/
+</script>
 <head>
     <meta charset="UTF-8">
     <title>Your Heart Stone Fireplace</title>

@@ -13,7 +13,8 @@ class App extends Component {
         super(props);
         this.state = {
             cards: null,
-            cardDisplayed: null
+            cardDisplayed: null,
+            user: window.user
         };
         this.handleResultClick = this.handleResultClick.bind(this);
         this.handleResult = this.handleResult.bind(this);

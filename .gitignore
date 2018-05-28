@@ -26,3 +26,6 @@
 
 src/main/resources/static/built
 src/main/js/node_modules
+src/scripts/node_modules
+
+src/main/resources/keystore.p12
