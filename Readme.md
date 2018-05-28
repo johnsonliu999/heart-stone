@@ -1,7 +1,7 @@
 # Heart Stone Fireplace
 
 # TODO
-- search by classes, races ...
+- ~~search by classes, races ...~~
 - login / logout
 - pagination
 - collect cards
@@ -9,10 +9,10 @@
 - filter
 - search list improvement
 
-# ISSUES
+# ISSUESin
 - detail links
 - name search
+- codecov doesn't work
 
 # Reference
 * http://www.hearthcards.net
-
