@@ -38,10 +38,13 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn integration-test
+      - run: mvn integration-test cobertura:cobertura
 
-      - run: mvn cobertura:cobertura
+      - store_test_results:
+          path: test-results
 
-      - run: bash <(curl -s https://codecov.io/bash)
+      - run:
+          name: Send to CodeCov
+          command: bash <(curl -s https://codecov.io/bash)
 
 
